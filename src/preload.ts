@@ -25,7 +25,11 @@ window.addEventListener('DOMContentLoaded', () => {
     AudioWrapper.countUp();
     if ('enter' === message) {
       pixi.thunder();
-    } else {
+    }
+    else if('tab' === message || 'space' === message){
+      pixi.particle();
+    }
+    else {
       pixi.fireworks();
     }
   });
