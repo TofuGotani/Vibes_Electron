@@ -55,15 +55,27 @@
     "webpack-cli": "^4.5.0"
   },
   "build": {
-    "appId": "gitani.vies.electron",
-    "files": [
-      "dist/**/*",
-      "package.json"
-    ],
+    "appId": "gotani.vibes",
     "directories": {
-      "buildResources": "resources",
-      "output": "electron_dist"
+      "output": "dist"
     },
-    "publish": null
+    "files": [
+      "dist/",
+      "assets/",
+      "package.json",
+      "package-lock.json"
+    ],
+    "mac": {
+      "target": [
+        "app"
+      ]
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }
