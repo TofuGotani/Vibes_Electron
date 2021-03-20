@@ -22,15 +22,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
   ipcRenderer.on('notification', (event, message) => {
     if (pixi === null) pixi = new Pixi();
-    AudioWrapper.countUp();
-    if ('enter' === message) {
-      pixi.thunder();
+    const stringJSON = new TextDecoder().decode(message);
+    const parsedJSON = JSON.parse(stringJSON);
+    const key = parsedJSON['key'];
+
+    if (key !== '') {
+      AudioWrapper.countUp();
+      if (key === 'enter') {
+        pixi.thunder();
+      } else if (key === 'tab' || key === 'space') {
+        pixi.particle();
+      } else {
+        pixi.fireworks();
+      }
     }
-    else if('tab' === message || 'space' === message){
-      pixi.particle();
-    }
-    else {
-      pixi.fireworks();
+
+    if (parsedJSON['praise']['isPraise']) {
+      pixi.praise(parsedJSON['praise']['text']);
     }
   });
 });
