@@ -3,6 +3,7 @@ import * as PIXI from 'pixi.js';
 import fireworks from './fireworks';
 import praise from './praise';
 import thunder from './thunder'
+import particle from './particle';
 
 export class Pixi {
 
@@ -29,6 +30,10 @@ export class Pixi {
 
     thunder(): void {
         thunder(this.app);
+    }
+
+    particle(): void {
+        particle(this.app);
     }
 
     praise(praiseText: string): void {
