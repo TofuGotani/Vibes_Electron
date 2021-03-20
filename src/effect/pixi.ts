@@ -13,7 +13,7 @@ export class Pixi {
         install(PIXI);
 
         this.app = new PIXI.Application({
-            width: 0.95 * screen.width,
+            width: 0.98 * screen.width,
             height: 0.85 * screen.height,
             transparent: true,
             antialias: true,
@@ -36,7 +36,7 @@ export class Pixi {
         particle(this.app);
     }
 
-    praise(praiseText: string): void {
-        praise(this.app, praiseText);
+    praise(praiseText: string, num: number): void {
+        praise(this.app, praiseText, num);
     }
 }
