@@ -2,6 +2,7 @@
 // It has the same sandbox as a Chrome extension.
 
 import { ipcRenderer } from 'electron';
+import AudioWrapper from './AudioWrapper';
 
 window.addEventListener('DOMContentLoaded', () => {
   const replaceText = (selector: string, text: string) => {
@@ -18,8 +19,11 @@ window.addEventListener('DOMContentLoaded', () => {
   ipcRenderer.on('notification', (event, message) => {
     const elem = document.getElementById('test');
     if (elem) {
+      AudioWrapper.countUp();
       elem.innerText += message;
     }
   });
 });
 
+AudioWrapper.init();
+AudioWrapper.audio.play();

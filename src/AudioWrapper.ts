@@ -66,7 +66,7 @@ export default class AudioWrapper {
     AudioWrapper.audio.rate(AudioWrapper._speedRate);
   }
 
-  static cuntUp(): void {
+  static countUp(): void {
     AudioWrapper._count++;
   }
 }
