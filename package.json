@@ -52,7 +52,7 @@
     "webpack-cli": "^4.5.0"
   },
   "build": {
-    "appId": "gotani.just-do-it",
+    "appId": "gitani.vies.electron",
     "files": [
       "dist/**/*",
       "package.json"
