@@ -2,9 +2,14 @@
   "name": "vibes_electron",
   "version": "1.0.0",
   "description": "HackDay2021で作成されたVibesのElectron アプリ。",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "run-s clean build serve",
+    "clean": "rimraf dist",
+    "build": "cross-env NODE_ENV=\"production\" webpack --progress",
+    "serve": "electron .",
+    "electron:build": "run-s build electron:bundle",
+    "electron:bundle": "electron-builder"
   },
   "repository": {
     "type": "git",
@@ -45,5 +50,16 @@
     "typescript": "^4.2.3",
     "webpack": "^5.27.0",
     "webpack-cli": "^4.5.0"
-  }
+  },
+  "build": {
+    "appId": "gotani.just-do-it",
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "resources",
+      "output": "electron_dist"
+    },
+    "publish": null
 }
