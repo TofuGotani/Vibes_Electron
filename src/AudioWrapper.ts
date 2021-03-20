@@ -81,7 +81,7 @@ const calculationAverage = () => {
   AudioWrapper.typeCounts.push(AudioWrapper.count);
   AudioWrapper.sum = 0;
   AudioWrapper.count = 0;
-  while (AudioWrapper.typeCounts.length > 10) {
+  while (AudioWrapper.typeCounts.length > 60) {
     AudioWrapper.typeCounts = AudioWrapper.typeCounts.slice(1);
   }
   AudioWrapper.typeCounts.forEach(value => {AudioWrapper.sum += value});
