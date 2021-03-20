@@ -2,7 +2,7 @@ import { install } from '@pixi/unsafe-eval';
 import * as PIXI from 'pixi.js';
 import fireworks from './fireworks';
 import praise from './praise';
-import thunder from './thunder'
+import thunder from './thunder';
 import particle from './particle';
 
 export class Pixi {
