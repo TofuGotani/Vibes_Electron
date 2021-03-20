@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/TofuGotani/Vibes_Electron#readme",
   "dependencies": {
+    "@types/ws": "^7.4.0",
     "howler": "^2.2.1",
     "http": "^0.0.1-security",
     "pixi.js": "^6.0.0",

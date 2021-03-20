@@ -1,5 +1,6 @@
-import {app, BrowserWindow, screen} from "electron";
-import * as path from "path";
+import { app, BrowserWindow, screen } from 'electron';
+import * as path from 'path';
+import WebSocketManager from './communication/WebSocketManager';
 
 
 const createWindow = () => {
@@ -14,8 +15,8 @@ const createWindow = () => {
     resizable: false,
     alwaysOnTop: true,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
-    },
+      preload: path.join(__dirname, 'preload.js')
+    }
   });
 
 
@@ -23,11 +24,11 @@ const createWindow = () => {
   mainWindow.setIgnoreMouseEvents(true);
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, "index.html"));
+  mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
-
+  WebSocketManager('ws://localhost:18080', mainWindow);
 };
 
 app.whenReady().then(createWindow);
@@ -35,7 +36,7 @@ app.whenReady().then(createWindow);
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on("activate", function () {
+app.on('activate', function() {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) createWindow();
@@ -44,8 +45,8 @@ app.on("activate", function () {
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
     app.quit();
   }
 });
