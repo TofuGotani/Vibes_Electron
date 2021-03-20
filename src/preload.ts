@@ -3,7 +3,8 @@
 
 import { ipcRenderer } from 'electron';
 import AudioWrapper from './AudioWrapper';
-import {Pixi} from './effect/pixi';
+import { Pixi } from './effect/pixi';
+import JdManager from './JdManager';
 
 window.addEventListener('DOMContentLoaded', () => {
   const replaceText = (selector: string, text: string) => {
@@ -20,20 +21,17 @@ window.addEventListener('DOMContentLoaded', () => {
   let pixi: Pixi | null = null;
 
   ipcRenderer.on('notification', (event, message) => {
-    if(pixi === null) pixi = new Pixi();
-    const elem = document.getElementById('test');
-    if (elem) {
-      AudioWrapper.countUp();
-      elem.innerText += message;
-      if ('enter' === message){
-        pixi.thunder();
-      }
-      else {
-        pixi.fireworks();
-      }
+    if (pixi === null) pixi = new Pixi();
+    AudioWrapper.countUp();
+    if ('enter' === message) {
+      pixi.thunder();
+    } else {
+      pixi.fireworks();
     }
   });
 });
 
 AudioWrapper.init();
 AudioWrapper.audio.play();
+
+JdManager.init();
