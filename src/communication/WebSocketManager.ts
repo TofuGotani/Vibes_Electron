@@ -15,7 +15,7 @@ const WebSocketManager = (path: string, window: BrowserWindow) => {
 
     ws.onmessage = (messageEvent) => {
       window.webContents.send('notification', messageEvent.data as string);
-      console.log(messageEvent.data as string);
+      // console.log(messageEvent.data as string);
     };
 
     ws.onclose = (closeEvent) => {
