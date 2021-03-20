@@ -61,6 +61,7 @@ export default class AudioWrapper {
       src: ["../assets/justDoIt.wav"],
       loop: true
     });
+    setInt();
   }
 
   static speedChange(variation: number): void {
@@ -71,17 +72,22 @@ export default class AudioWrapper {
   static cuntUp(): void {
     AudioWrapper._count++;
   }
+}
+export const setInt = () => {
+  setInterval(
+    calculationAverage, 1000
+  )
+}
 
-  const calculationAverage = () => {
-    AudioWrapper.typeCounts.push(AudioWrapper.count);
-    AudioWrapper.sum = 0;
-    AudioWrapper.count = 0;
-    while (AudioWrapper.typeCounts.length > 30) {
-      AudioWrapper.typeCounts = AudioWrapper.typeCounts.slice(1);
-    }
-    AudioWrapper.typeCounts.forEach(value => {AudioWrapper.sum += value})
-    AudioWrapper.ave = AudioWrapper.sum / AudioWrapper.typeCounts.length;
-    AudioWrapper.speedRate = 1 + (AudioWrapper.ave * 0.15)
-    AudioWrapper.speedChange(0)
+const calculationAverage = () => {
+  AudioWrapper.typeCounts.push(AudioWrapper.count);
+  AudioWrapper.sum = 0;
+  AudioWrapper.count = 0;
+  while (AudioWrapper.typeCounts.length > 30) {
+    AudioWrapper.typeCounts = AudioWrapper.typeCounts.slice(1);
   }
+  AudioWrapper.typeCounts.forEach(value => {AudioWrapper.sum += value})
+  AudioWrapper.ave = AudioWrapper.sum / AudioWrapper.typeCounts.length;
+  AudioWrapper.speedRate = 1 + (AudioWrapper.ave * 0.15)
+  AudioWrapper.speedChange(0)
 }
