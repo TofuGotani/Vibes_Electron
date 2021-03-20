@@ -77,14 +77,15 @@ export const setInt = () => {
 }
 
 const calculationAverage = () => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   AudioWrapper.typeCounts.push(AudioWrapper.count);
   AudioWrapper.sum = 0;
   AudioWrapper.count = 0;
-  while (AudioWrapper.typeCounts.length > 30) {
+  while (AudioWrapper.typeCounts.length > 10) {
     AudioWrapper.typeCounts = AudioWrapper.typeCounts.slice(1);
   }
-  AudioWrapper.typeCounts.forEach(value => {AudioWrapper.sum += value})
+  AudioWrapper.typeCounts.forEach(value => {AudioWrapper.sum += value});
   AudioWrapper.ave = AudioWrapper.sum / AudioWrapper.typeCounts.length;
-  AudioWrapper.speedRate = 1 + (AudioWrapper.ave * 0.20)
-  AudioWrapper.speedChange(0)
+  AudioWrapper.speedRate = 1 + (AudioWrapper.ave * 0.20);
+  AudioWrapper.speedChange(0);
 }
