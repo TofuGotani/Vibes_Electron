@@ -16,8 +16,8 @@ const praiseAnimation = (app: PIXI.Application, praiseText: string): void => {
     sprite.x = width;
     sprite.y = 0.8 * height;
     sprite.anchor.set(0.5);
-    sprite.scale.x = 0.4;
-    sprite.scale.y = 0.4;
+    sprite.height *= 0.15 * width / sprite.width;
+    sprite.width = 0.15 * width;
 
     stage.addChild(sprite);
 
