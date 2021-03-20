@@ -18,10 +18,9 @@ window.addEventListener('DOMContentLoaded', () => {
     replaceText(`${type}-version`, process.versions[type as keyof NodeJS.ProcessVersions] ?? '');
   }
 
-  let pixi: Pixi | null = null;
+  const pixi = new Pixi();
 
   ipcRenderer.on('notification', (event, message) => {
-    if (pixi === null) pixi = new Pixi();
     const stringJSON = new TextDecoder().decode(message);
     const parsedJSON = JSON.parse(stringJSON);
     const key = parsedJSON['key'];
@@ -41,9 +40,10 @@ window.addEventListener('DOMContentLoaded', () => {
       pixi.praise(parsedJSON['praise']['text']);
     }
   });
+  AudioWrapper.init();
+  AudioWrapper.audio.play();
+
+  JdManager.init();
 });
 
-AudioWrapper.init();
-AudioWrapper.audio.play();
 
-JdManager.init();
