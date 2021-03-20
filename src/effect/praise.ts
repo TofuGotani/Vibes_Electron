@@ -42,8 +42,8 @@ const praiseAnimation = (app: PIXI.Application, praiseText: string): void => {
             sprite.x += 0.1 * t - 2;
         }
         else if(t == 30) {
-            fukidasi.x = sprite.x - 0.5 * sprite.scale.x * sprite.width;
-            fukidasi.y = sprite.y - 0.5 * sprite.scale.y * sprite.height;
+            fukidasi.x = sprite.x - 0.25 * sprite.width;
+            fukidasi.y = sprite.y - 0.25 * sprite.height;
             text.x = fukidasi.x - 0.5 * fukidasi.width;
             text.y = fukidasi.y - 0.5 * fukidasi.height;
             stage.addChild(fukidasi);
