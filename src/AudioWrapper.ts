@@ -10,9 +10,6 @@ export default class AudioWrapper {
   private static _ave = 0;
 
 
-  static get speedRate(): number {
-    return this._speedRate;
-  }
 
   static set speedRate(value: number) {
     this._speedRate = value;
