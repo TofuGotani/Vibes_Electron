@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     if (parsedJSON['praise']['isPraise']) {
-      pixi.praise(parsedJSON['praise']['praiseData']['text'], 3);
+      pixi.praise(parsedJSON['praise']['praiseData']['text'], parsedJSON['praise']['praiseData']['cats']);
     }
   });
   AudioWrapper.init();
