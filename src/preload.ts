@@ -24,8 +24,13 @@ window.addEventListener('DOMContentLoaded', () => {
     const elem = document.getElementById('test');
     if (elem) {
       AudioWrapper.countUp();
-      pixi.fireworks();
       elem.innerText += message;
+      if ('enter' === message){
+        pixi.thunder();
+      }
+      else {
+        pixi.fireworks();
+      }
     }
   });
 });

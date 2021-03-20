@@ -2,6 +2,7 @@ import { install } from '@pixi/unsafe-eval';
 import * as PIXI from 'pixi.js';
 import fireworks from './fireworks';
 import praise from './praise';
+import thunder from './thunder'
 
 export class Pixi {
 
@@ -24,6 +25,10 @@ export class Pixi {
 
     fireworks(): void {
         fireworks(this.app);
+    }
+
+    thunder(): void {
+        thunder(this.app);
     }
 
     praise(praiseText: string): void {
