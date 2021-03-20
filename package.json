@@ -1,0 +1,49 @@
+{
+  "name": "vibes_electron",
+  "version": "1.0.0",
+  "description": "HackDay2021で作成されたVibesのElectron アプリ。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TofuGotani/Vibes_Electron.git"
+  },
+  "author": "TofuGotani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TofuGotani/Vibes_Electron/issues"
+  },
+  "homepage": "https://github.com/TofuGotani/Vibes_Electron#readme",
+  "dependencies": {
+    "howler": "^2.2.1",
+    "http": "^0.0.1-security",
+    "pixi.js": "^6.0.0",
+    "ws": "^7.4.4"
+  },
+  "devDependencies": {
+    "@types/howler": "^2.2.1",
+    "@types/mini-css-extract-plugin": "^1.2.2",
+    "@types/node": "^14.14.35",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.1.3",
+    "electron": "^12.0.1",
+    "electron-builder": "^22.10.5",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.3.9",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^8.0.18",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3",
+    "webpack": "^5.27.0",
+    "webpack-cli": "^4.5.0"
+  }
+}
