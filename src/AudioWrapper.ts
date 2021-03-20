@@ -85,6 +85,6 @@ const calculationAverage = () => {
   }
   AudioWrapper.typeCounts.forEach(value => {AudioWrapper.sum += value})
   AudioWrapper.ave = AudioWrapper.sum / AudioWrapper.typeCounts.length;
-  AudioWrapper.speedRate = 1 + (AudioWrapper.ave * 0.15)
+  AudioWrapper.speedRate = 1 + (AudioWrapper.ave * 0.20)
   AudioWrapper.speedChange(0)
 }

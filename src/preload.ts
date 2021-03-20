@@ -3,6 +3,7 @@
 
 import { ipcRenderer } from 'electron';
 import AudioWrapper from './AudioWrapper';
+import {Pixi} from './effect/pixi';
 
 window.addEventListener('DOMContentLoaded', () => {
   const replaceText = (selector: string, text: string) => {
@@ -16,11 +17,20 @@ window.addEventListener('DOMContentLoaded', () => {
     replaceText(`${type}-version`, process.versions[type as keyof NodeJS.ProcessVersions] ?? '');
   }
 
+  let pixi: Pixi | null = null;
+
   ipcRenderer.on('notification', (event, message) => {
+    if(pixi === null) pixi = new Pixi();
     const elem = document.getElementById('test');
     if (elem) {
       AudioWrapper.countUp();
       elem.innerText += message;
+      if ('enter' === message){
+        pixi.thunder();
+      }
+      else {
+        pixi.fireworks();
+      }
     }
   });
 });
