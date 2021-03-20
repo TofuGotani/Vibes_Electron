@@ -38,10 +38,10 @@ const praiseAnimation = (app: PIXI.Application, praiseText: string): void => {
             sprite.x -= dx;
             dx -= 2 - 0.1 * t;
         }
-        else if(t < 25) {
+        else if(t < 30) {
             sprite.x += 0.1 * t - 2;
         }
-        else if(t == 25) {
+        else if(t == 30) {
             fukidasi.x = sprite.x - 0.5 * sprite.scale.x * sprite.width;
             fukidasi.y = sprite.y - 0.5 * sprite.scale.y * sprite.height;
             text.x = fukidasi.x - 0.5 * fukidasi.width;
@@ -49,16 +49,16 @@ const praiseAnimation = (app: PIXI.Application, praiseText: string): void => {
             stage.addChild(fukidasi);
             stage.addChild(text);
         }
-        else if(t == 145) {
+        else if(t == 140) {
             stage.removeChild(fukidasi);
             stage.removeChild(text);
         }
         else if(150 < t) {
             sprite.x += dx;
-            dx += 0.1 * t - 12;
+            dx += 0.1 * t - 15;
         }
-        else if(145 < t) {
-            sprite.x -= 0.1 * t - 12;
+        else if(140 < t) {
+            sprite.x -= 15 - 0.1 * t;
         }
         else if(t >= 170) {
             stage.removeChild(sprite);
